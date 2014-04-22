@@ -1,0 +1,17 @@
+# Will route to: LoginController->indexAction()...
+# cat_core_login: 
+#    pattern: /
+#    defaults: { _controller: "CatCoreBundle:Login:index" }
+
+#CatCoreBundle_login:
+#    resource: "@CatCoreBundle/Controller/LoginController.php"
+#    type:     annotation
+#    prefix: /
+    
+CatCoreBundle_login: 
+    pattern: /
+    defaults: { _controller: "CatCoreBundle:Login:index" }    
+    
+CatCoreBundle_about:
+    pattern: /about
+    defaults: { _controller: "CatCoreBundle:Login:about" }   

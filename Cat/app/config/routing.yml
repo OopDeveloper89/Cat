@@ -1,0 +1,4 @@
+cat_core:
+    resource: "@CatCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+

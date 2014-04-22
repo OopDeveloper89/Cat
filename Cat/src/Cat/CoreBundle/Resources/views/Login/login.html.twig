@@ -1,0 +1,49 @@
+{% extends 'CatCoreBundle::base.html.twig' %} 
+
+{% block stylesheets %}
+	{% stylesheets '@CatCoreBundle/Resources/public/css/login/*' filter='cssrewrite' %}
+		<link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
+{% endblock %}
+
+{% block pageContent %} 
+	<div id="content">
+		<h3>Login</h3>
+		
+		{% if error %}
+    		<p class="formError">{{ error }}</p>
+		{% endif %}
+		
+		{{ form_start(
+			loginform, 
+			{'attr': {'id': 'loginForm'}}) 
+		}}
+			
+			{{ form_errors(loginform) }}
+		
+			{{ form_widget(
+					loginform.email, 
+					{'attr': {'class': 'form-control', 'placeholder' : 'E-Mail'}}
+				) }}
+			
+			{{ form_widget(
+					loginform.password, 
+					{'attr': {'class': 'form-control', 'placeholder' : 'Password'}}
+				) }}
+			
+			{{ form_label(loginform.rememberMe) }}
+			{{ form_widget(loginform.rememberMe) }}
+			
+			{{ form_widget(
+					loginform.save, 
+					{'attr': {'class': 'btn btn-default btn-block'}}
+				) 
+			}}
+		
+		{{ form_end(loginform) }}
+		
+		<div id="aboutLinkContainer">
+			<a href="{{ path('CatCoreBundle_about') }}">About Cat</a>
+		</div>
+	</div>
+{% endblock %}

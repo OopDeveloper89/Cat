@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html" ; charset=utf-8 " />
+		<title>Cat</title> 
+		
+		{% javascripts '@CatCoreBundle/Resources/public/js/*' %}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %} 
+		
+		{% javascripts '@CatCoreBundle/Resources/public/js/libs/*/*' %}
+			<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %} 
+		
+		{% stylesheets '@CatCoreBundle/Resources/public/css/*' filter='cssrewrite' %}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+		
+		{% stylesheets '@CatCoreBundle/Resources/public/css/bootstrap/*' filter='cssrewrite' %}
+			<link rel="stylesheet" href="{{ asset_url }}" />
+		{% endstylesheets %}
+		
+		{% block javascripts %}{% endblock %}
+		{% block stylesheets %}{% endblock %}
+	</head>
+	
+	<body>
+		{% block pageHeader %}
+			<nav id="pageHeader" class="headbar navbar navbar-default navbar-static-top" role="navigation">
+				<p class="navbar-text appname">Cat</p>
+			</nav>
+		{% endblock %}
+			
+		{% block pageContent %}
+			This is the content!
+		{% endblock %}
+	</body>
+
+</html>
